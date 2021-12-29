@@ -12,15 +12,11 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { Message, Menu, Setting } from '@element-plus/icons-vue';
 
 export default defineComponent({
-  components: {
-    Message,
-    Setting,
-    'icon-menu': Menu,
-  },
+
   setup() {
+    console.log('fdsas');
     const item = {
       date: '2016-05-02',
       name: 'Tom',
@@ -36,7 +32,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="less">
 .el-header {
   background-color: #b3c0d1;
   color: var(--el-text-color-primary);

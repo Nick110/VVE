@@ -20,5 +20,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'vue/no-unused-components': 'off',
     'vue/multi-word-component-names': 'off',
+    'no-console': 'off',
+    'no-debugger': 'off',
   },
 };
