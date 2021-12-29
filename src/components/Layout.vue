@@ -11,20 +11,20 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
-import { Message, Menu, Setting } from "@element-plus/icons-vue";
+import { defineComponent, ref } from 'vue';
+import { Message, Menu, Setting } from '@element-plus/icons-vue';
 
 export default defineComponent({
   components: {
     Message,
     Setting,
-    "icon-menu": Menu,
+    'icon-menu': Menu,
   },
   setup() {
     const item = {
-      date: "2016-05-02",
-      name: "Tom",
-      address: "No. 189, Grove St, Los Angeles",
+      date: '2016-05-02',
+      name: 'Tom',
+      address: 'No. 189, Grove St, Los Angeles',
     };
 
     const tableData = ref(Array(20).fill(item));
