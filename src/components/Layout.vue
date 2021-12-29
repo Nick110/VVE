@@ -5,6 +5,9 @@
       <el-aside width="200px">Aside</el-aside>
       <el-main>
         <router-view></router-view>
+        <button class="bg-red-500 hover:bg-red-700">
+          Hover me
+        </button>
       </el-main>
     </el-container>
   </el-container>
