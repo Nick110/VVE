@@ -21,7 +21,7 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src'), // 设置 `@` 指向 `src` 目录
     },
-    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', 'vue'],
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
   },
   base: './', // 设置打包路径
   server: {
@@ -38,5 +38,13 @@ export default defineConfig({
     //     rewrite: (path) => path.replace('/api/', '/')
     //   }
     // }
+  },
+  css: {
+    preprocessorOptions: {
+      // 引入公用的样式
+      scss: {
+        additionalData: '@import "@/styles/common.less";',
+      },
+    },
   },
 });

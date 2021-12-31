@@ -2,12 +2,11 @@
   <el-container>
     <el-header>Header</el-header>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="200px">
+        Aside
+      </el-aside>
       <el-main>
-        <router-view></router-view>
-        <button class="bg-red-500 hover:bg-red-700">
-          Hover me
-        </button>
+        <router-view />
       </el-main>
     </el-container>
   </el-container>
