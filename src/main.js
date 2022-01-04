@@ -8,6 +8,7 @@ import router from './router/index';
 import axios from './utils/axios';
 
 const app = createApp(App);
+
 app.use(ElementPlus, {
   locale: zhCn,
 });
@@ -15,4 +16,13 @@ app.use(ElementPlus, {
 app.config.globalProperties.$axios = axios;
 
 app.use(router);
+// 支持 Vue Devtools
+// const win = window;
+// if (process.env.NODE_ENV === 'development') {
+//   if ('__VUE_DEVTOOLS_GLOBAL_HOOK__' in win) {
+//     // 这里__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue赋值一个createApp实例
+//     // eslint-disable-next-line no-underscore-dangle
+//     win.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app;
+//   }
+// }
 app.mount('#app');

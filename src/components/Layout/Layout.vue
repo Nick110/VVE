@@ -1,24 +1,25 @@
 <template>
-  <el-container>
-    <el-header>Header</el-header>
-    <el-container>
-      <el-aside width="200px">
-        Aside
-      </el-aside>
-      <el-main>
-        <router-view />
-      </el-main>
-    </el-container>
-  </el-container>
+  <Header />
+  <div class="flex">
+    <Sider />
+    <el-main>
+      <router-view />
+    </el-main>
+  </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
+import Sider from './Sider.vue';
+import Header from './Header.vue';
 
 export default defineComponent({
+  components: {
+    Header,
+    Sider,
+  },
 
   setup() {
-    console.log('fdsas');
     const item = {
       date: '2016-05-02',
       name: 'Tom',

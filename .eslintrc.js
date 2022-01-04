@@ -7,6 +7,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-recommended',
+    'airbnb-base',
   ],
   parserOptions: {
     ecmaVersion: 13,
@@ -21,6 +22,9 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'no-console': 'off',
     'no-debugger': 'off',
-    'vue/singleline-html-element-content-newline': 0
+    'vue/singleline-html-element-content-newline': 0,
+    'timport/no-extraneous-dependencies': 0,
+    'no-unused-vars': 0,
+    'import/extensions': 0,
   },
 };

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 // 如果编辑器提示 path 模块找不到，则可以安装一下 @types/node -> npm i @types/node -D
@@ -21,11 +22,10 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src'), // 设置 `@` 指向 `src` 目录
     },
-    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
   },
   base: './', // 设置打包路径
   server: {
-    port: 4000, // 设置服务启动端口号
+    port: 8888, // 设置服务启动端口号
     open: true, // 设置服务启动时是否自动打开浏览器
     cors: true, // 允许跨域
 
@@ -42,9 +42,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       // 引入公用的样式
-      scss: {
+      less: {
         additionalData: '@import "@/styles/common.less";',
       },
+      javascriptEnabled: true,
     },
   },
 });

@@ -1,16 +1,33 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/pages/home.vue') // 懒加载组件
-  }
-]
+    meta: {
+      title: '系统首页',
+    },
+    component: () => import('@/pages/home.vue'), // 懒加载组件
+    children: [
+      {
+        path: '/dashboard',
+        component: () => import('@/pages/dashboard.vue'),
+      },
+      {
+        path: '/404',
+        component: () => import('@/pages/404.vue'),
+      },
+    ],
+  },
+  {
+    path: '/:pathMatch(.*)',
+    component: () => import('@/pages/404.vue'),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
