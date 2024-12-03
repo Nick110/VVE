@@ -3,15 +3,16 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
   extends: [
-    'plugin:vue/vue3-recommended',
-    'airbnb-base',
+    'plugin:vue/vue3-essential',
+    'plugin:prettier/recommended',
+    'eslint:recommended'
   ],
   parserOptions: {
     ecmaVersion: 13,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   // plugins: [
   //   'vue',
@@ -26,5 +27,7 @@ module.exports = {
     'timport/no-extraneous-dependencies': 0,
     'no-unused-vars': 0,
     'import/extensions': 0,
-  },
-};
+    semi: 0,
+    'comma-dangle': 0
+  }
+}

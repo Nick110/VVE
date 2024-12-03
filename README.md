@@ -1,4 +1,10 @@
-[从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境](https://juejin.cn/post/6951649464637636622#heading-14)
+
+- Vue3
+- Vite
+- ant-design-vue
+- tailwindcss
+- iconify
+- Eslint + Prettier
 
 在VSCode的setting.json中加入如下配置，即可在保存文件时自动按eslint规则修复代码
 ```JavaScript
@@ -14,9 +20,9 @@ Prettier 配置规则 > ESLint 配置规则
 module.exports = {
   ...
   extends: [
-    'plugin:vue/essential',
-    'airbnb-base',
+    'plugin:vue/vue3-essential',    
     'plugin:prettier/recommended' // 添加 prettier 插件
+    'eslint:recommended'
   ],
   ...
 }
