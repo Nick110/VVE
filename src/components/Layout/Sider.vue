@@ -84,7 +84,7 @@ const openKeys = computed(() => {
 })
 
 onMounted(() => {
-  // console.log(path, openKeys.value, selectedKeys.value)
+  console.log(path, openKeys.value, selectedKeys.value)
 })
 
 watch(
