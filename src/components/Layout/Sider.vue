@@ -9,7 +9,7 @@
     <div class="logo-wrapper">
       <Icon
         v-if="globalStore.collapsed"
-        icon="logos:docusaurus"
+        icon="logos:netbeans"
         style="font-size: 24px"
       />
       <Icon
@@ -24,8 +24,8 @@
         :default-active="route.path"
         :default-openeds="openKeys"
         :collapse="globalStore.collapsed"
-        active-text-color="#4096ff"
-        background-color="#313131"
+        active-text-color="#000"
+        background-color="linear-gradient(to right,#96c93d,#00b09b)"
         text-color="#fff"
       >
         <!-- 目前支持2级菜单 -->
@@ -125,7 +125,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .logo-wrapper {
-  border-bottom: 1px solid #a9a9a96c;
+  border-bottom: 1px solid #cfcfcf;
   height: 56px;
   display: flex;
   justify-content: center;
@@ -136,7 +136,9 @@ onMounted(() => {
 }
 .el-aside {
   transition: width 0.3s ease;
-  background-color: #313131;
+  // background-color: #313131;
+  background: linear-gradient(to right, #96c93d, #00b09b);
+
   position: relative;
   overflow-x: visible;
   .collapse-btn {
@@ -154,6 +156,13 @@ onMounted(() => {
     // align-items: center;
     // justify-content: center;
     // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  :deep(.el-sub-menu__title:hover),
+  .el-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .el-menu-item.is-active {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 }
 </style>
