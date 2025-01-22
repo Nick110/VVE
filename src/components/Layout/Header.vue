@@ -2,13 +2,11 @@
   <ElHeader class="header"></ElHeader>
 </template>
 
-<script setup>
-import { useGlobalStore } from '../../store/global'
-</script>
+<script setup></script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .el-header {
-  height: 60px;
+  height: var(--el-menu-item-height);
   background-color: #fff;
   width: 100%;
   padding: 0 12px;

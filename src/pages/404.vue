@@ -3,19 +3,10 @@
 </template>
 
 <script>
-
 export default {
-
-  components: {
-  },
+  components: {},
   data() {
-    return {
-    };
-  },
-};
-
+    return {}
+  }
+}
 </script>
-
-<style lang='less' scoped>
-
-</style>

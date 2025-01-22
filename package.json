@@ -28,6 +28,7 @@
     "less": "^ 4.2.1",
     "postcss": "^8.4.49",
     "prettier": "^3.2.5",
+    "sass": "^1.83.4",
     "tailwindcss": "^3.4.15",
     "unplugin-auto-import": "^0.17.8",
     "unplugin-icons": "^22.0.0",

@@ -25,7 +25,7 @@ import { defineComponent, ref } from 'vue'
 import Header from './Header.vue'
 </script>
 
-<style lang="less">
+<style lang="scss">
 .out-layout {
   min-height: 100vh;
 }

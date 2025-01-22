@@ -9,7 +9,7 @@ export default {}
 // Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
 </script>
 
-<style lang="less">
+<style lang="scss">
 body {
   margin: 0;
 }

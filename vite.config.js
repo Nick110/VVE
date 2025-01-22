@@ -58,11 +58,9 @@ export default defineConfig({
   },
   css: {
     preprocessorOptions: {
-      // 引入公用的样式
-      less: {
-        additionalData: '@import "@/styles/common.less";'
-      },
-      javascriptEnabled: true
+      scss: {
+        additionalData: `@use "@/styles/element-plus.scss" as *;`
+      }
     }
   }
 })

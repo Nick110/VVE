@@ -14,7 +14,7 @@ export const routes = [
         component: () => import('@/pages/dashboard.vue'),
         meta: {
           title: '总览',
-          icon: 'logos:twitter'
+          icon: 'ep:stopwatch'
         }
       },
       {
@@ -22,7 +22,7 @@ export const routes = [
         component: () => import('@/pages/pro/index.vue'),
         meta: {
           title: '项目',
-          icon: 'logos:sketch'
+          icon: 'ep:cold-drink'
         },
         children: [
           {
@@ -30,7 +30,7 @@ export const routes = [
             component: () => import('@/pages/a/index.vue'),
             meta: {
               title: 'A',
-              icon: 'logos:vue'
+              icon: 'ep:bicycle'
             }
           }
         ]

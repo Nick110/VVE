@@ -6,14 +6,26 @@
         <DArrowLeft v-else />
       </el-icon>
     </div>
+    <div class="logo-wrapper">
+      <Icon
+        v-if="globalStore.collapsed"
+        icon="logos:docusaurus"
+        style="font-size: 24px"
+      />
+      <Icon
+        v-else
+        icon="logos:codium"
+        style="font-size: 24px"
+      />
+    </div>
     <el-scrollbar>
       <el-menu
         class="sider"
         :default-active="route.path"
         :default-openeds="openKeys"
         :collapse="globalStore.collapsed"
-        active-text-color="#ffd04b"
-        background-color="#545c64"
+        active-text-color="#4096ff"
+        background-color="#313131"
         text-color="#fff"
       >
         <!-- 目前支持2级菜单 -->
@@ -111,13 +123,20 @@ onMounted(() => {
 })
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
+.logo-wrapper {
+  border-bottom: 1px solid #a9a9a96c;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .sider {
   border: none;
 }
 .el-aside {
   transition: width 0.3s ease;
-  background-color: @gray;
+  background-color: #313131;
   position: relative;
   overflow-x: visible;
   .collapse-btn {
