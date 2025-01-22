@@ -1,37 +1,46 @@
 <template>
-  <a-layout-sider
-    breakpoint="lg"
-    :collapsedWidth="0"
-    :collapsed="globalStore.collapsed"
-  >
-    <div class="logo">
-      <Icon icon="logos:codium" width="160" height="24" />
+  <el-aside :width="globalStore.collapsed ? '64px' : '200px'">
+    <div class="collapse-btn cursor-pointer absolute">
+      <el-icon @click="toggleCollapsed">
+        <DArrowRight v-if="globalStore.collapsed" />
+        <DArrowLeft v-else />
+      </el-icon>
     </div>
-    <a-menu
-      :selectedKeys="selectedKeys"
-      :openKeys="openKeys"
-      class="sider"
-      theme="dark"
-      mode="inline"
-    >
-      <!-- 目前支持2级菜单 -->
-      <div v-for="item in siderMenuConfig" :key="item.path">
-        <a-sub-menu v-if="item.children" :key="item.path">
-          <template #title>
-            <Icon
-              class="mr-2 inline"
-              :icon="item.meta.icon"
-              v-if="item.meta.icon"
-              width="20"
-              height="20"
-            />
-            <span>{{ item.meta.title }}</span>
-          </template>
-          <a-menu-item
-            v-for="subItem in item.children"
-            :key="item.path + '/' + subItem.path"
+    <el-scrollbar>
+      <el-menu
+        class="sider"
+        :default-active="route.path"
+        :default-openeds="openKeys"
+        :collapse="globalStore.collapsed"
+        active-text-color="#ffd04b"
+        background-color="#545c64"
+        text-color="#fff"
+      >
+        <!-- 目前支持2级菜单 -->
+        <template
+          v-for="item in siderMenuConfig"
+          :key="item.path"
+        >
+          <el-sub-menu
+            v-if="item.children"
+            :index="item.path"
           >
-            <div class="flex items-center">
+            <template #title>
+              <Icon
+                class="mr-2"
+                :icon="item.meta.icon"
+                v-if="item.meta.icon"
+                width="20"
+                height="20"
+              />
+              <span>{{ item.meta.title }}</span>
+            </template>
+            <el-menu-item
+              v-for="subItem in item.children"
+              :key="subItem.path"
+              :index="item.path + '/' + subItem.path"
+              @click="routerPush(item.path + '/' + subItem.path)"
+            >
               <Icon
                 class="mr-2"
                 :icon="subItem.meta.icon"
@@ -39,14 +48,16 @@
                 width="20"
                 height="20"
               />
-              <RouterLink :to="item.path + '/' + subItem.path">
+              <template #title>
                 {{ subItem.meta.title }}
-              </RouterLink>
-            </div>
-          </a-menu-item>
-        </a-sub-menu>
-        <a-menu-item v-else :key="item.path">
-          <div class="flex items-center">
+              </template>
+            </el-menu-item>
+          </el-sub-menu>
+          <el-menu-item
+            v-else
+            :index="item.path"
+            @click="routerPush(item.path)"
+          >
             <Icon
               class="mr-2"
               :icon="item.meta.icon"
@@ -54,12 +65,14 @@
               width="20"
               height="20"
             />
-            <RouterLink :to="item.path">{{ item.meta.title }}</RouterLink>
-          </div>
-        </a-menu-item>
-      </div>
-    </a-menu>
-  </a-layout-sider>
+            <template #title>
+              {{ item.meta.title }}
+            </template>
+          </el-menu-item>
+        </template>
+      </el-menu>
+    </el-scrollbar>
+  </el-aside>
 </template>
 
 <script setup>
@@ -68,56 +81,60 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { routes } from '@/router'
 import { useGlobalStore } from '@/store/global'
 import { Icon } from '@iconify/vue'
+import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
 
 const globalStore = useGlobalStore()
+
+const toggleCollapsed = () => {
+  return globalStore.toggleCollapsed()
+}
 
 const siderMenuConfig = ref(routes[0].children)
 // console.log('siderMenuConfig', siderMenuConfig.value)
 
 const route = useRoute()
-const path = ref(route.path)
+const router = useRouter()
 
-const selectedKeys = ref([path.value])
+const routerPush = (path) => {
+  router.push({
+    path
+  })
+}
 
 const openKeys = computed(() => {
-  return [`/${path.value.split('/')[1]}`]
+  return [`/${route.path.split('/')[1]}`]
 })
 
 onMounted(() => {
-  console.log(path, openKeys.value, selectedKeys.value)
+  console.log(route.path, openKeys.value)
 })
-
-watch(
-  () => route.path,
-  (newValue, oldValue) => {
-    selectedKeys.value = [newValue]
-    path.value = newValue
-  }
-)
 </script>
 
 <style lang="less" scoped>
-.logo {
-  height: 60px;
-  width: 100%;
-  font-size: 20px;
-  // background-color: #fff;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.sider {
+  border: none;
 }
-
-.site-layout-sub-header-background {
-  background: #fff;
-}
-
-.site-layout-background {
-  background: #fff;
-}
-
-[data-theme='dark'] .site-layout-sub-header-background {
-  background: #141414;
+.el-aside {
+  transition: width 0.3s ease;
+  background-color: @gray;
+  position: relative;
+  overflow-x: visible;
+  .collapse-btn {
+    right: 0px;
+    top: 45%;
+    color: #fff;
+    z-index: 20;
+    // background-color: #fff;
+    // border: 1px solid rgb(5 5 5 / 6%);
+    // border-radius: 50%;
+    // width: 24px;
+    // height: 24px;
+    // justify-content: center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 }
 </style>

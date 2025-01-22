@@ -1,22 +1,23 @@
 <template>
-  <a-layout class="out-layout">
+  <el-container class="out-layout">
     <Sider />
-    <a-layout>
+    <el-container class="main-layout">
       <Header />
-      <a-layout-content
+      <el-main>
+        <RouterView />
+      </el-main>
+      <el-footer
         :style="{
-          margin: '24px 16px',
-          background: '#fff',
-          padding: '16px 12px'
+          textAlign: 'center',
+          height: '40px',
+          lineHeight: '40px',
+          color: '#999'
         }"
       >
-        <RouterView />
-      </a-layout-content>
-      <a-layout-footer :style="{ textAlign: 'center', background: '#fff' }">
-        Created by Younger ©2024
-      </a-layout-footer>
-    </a-layout>
-  </a-layout>
+        Created by Younger 2024
+      </el-footer>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
@@ -27,5 +28,8 @@ import Header from './Header.vue'
 <style lang="less">
 .out-layout {
   min-height: 100vh;
+}
+.main-layout {
+  background-color: #f1f3f5;
 }
 </style>

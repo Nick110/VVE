@@ -6,5 +6,7 @@ module.exports = {
   jsxSingleQuote: true, // jsx中使用单引号
   semi: false, // 句尾使用分号
   trailingComma: 'none', // 多行时不打印尾随逗号
-  bracketSpacing: true //在对象前后添加空格-eg: { foo: bar }
+  bracketSpacing: true, //在对象前后添加空格-eg: { foo: bar }
+  singleAttributePerLine: true,
+  htmlWhitespaceSensitivity: 'ignore',
 }

@@ -1,34 +1,19 @@
 <template>
-  <a-layout-header class="header">
-    <a-button type="primary" @click="toggleCollapsed">
-      <MenuUnfoldOutlined v-if="globalStore.collapsed" />
-      <MenuFoldOutlined v-else />
-    </a-button>
-  </a-layout-header>
+  <ElHeader class="header"></ElHeader>
 </template>
 
 <script setup>
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue'
 import { useGlobalStore } from '../../store/global'
-
-const globalStore = useGlobalStore()
-
-const toggleCollapsed = () => {
-  return globalStore.toggleCollapsed()
-}
 </script>
 
 <style lang="less" scoped>
-.header {
+.el-header {
   height: 60px;
-  background: #fff;
+  background-color: #fff;
   width: 100%;
-  padding: 0 24px;
+  padding: 0 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  .anticon {
-    // line-height: 0;
-    vertical-align: 0;
-  }
 }
 </style>
