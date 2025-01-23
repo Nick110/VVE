@@ -6,7 +6,10 @@
         <DArrowLeft v-else />
       </el-icon>
     </div>
-    <div class="logo-wrapper">
+    <div
+      class="logo-wrapper cursor-pointer"
+      @click="routerPush('/')"
+    >
       <Icon
         v-if="globalStore.collapsed"
         icon="logos:netbeans"
