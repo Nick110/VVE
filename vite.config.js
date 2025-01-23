@@ -40,7 +40,6 @@ export default defineConfig({
       '@': resolve(__dirname, 'src') // 设置 `@` 指向 `src` 目录
     }
   },
-  base: './', // 设置打包路径
   server: {
     port: 8888, // 设置服务启动端口号
     open: true, // 设置服务启动时是否自动打开浏览器

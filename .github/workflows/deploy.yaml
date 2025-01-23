@@ -1,0 +1,28 @@
+name: Deploy to Server
+
+# 只在提交到 main 分支时触发
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码到 runner
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 添加 SSH 密钥，确保安全连接到服务器
+      - name: Setup SSH for deployment
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # 部署代码到服务器
+      - name: Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@110.42.214.59/ "./deploy.sh"
