@@ -25,4 +25,4 @@ jobs:
       # 部署代码到服务器
       - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no root@110.42.214.59/ "./deploy.sh"
+          ssh -o StrictHostKeyChecking=no root@110.42.214.59 "./deploy.sh"
