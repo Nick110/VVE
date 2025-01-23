@@ -1,7 +1,7 @@
 
 - Vue3
 - Vite
-- ant-design-vue
+- Element-Plus
 - tailwindcss
 - iconify
 - Eslint + Prettier
